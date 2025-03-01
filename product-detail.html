@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-hant-tw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>啞鈴-健身器材</title>
+  </head>
+  <body>
+    <section id="product-detail">
+      <div class="breadcrumb-container">
+        <nav class="breadcrumb">
+          <div class="breadcrumb-item">
+            <a href="#">器械租借</a>
+          </div>
+
+          <div class="breadcrumb-item">
+            <a href="#">健身器材</a>
+          </div>
+
+          <div class="breadcrumb-item active">
+            <a href="#">啞鈴</a>
+          </div>
+        </nav>
+      </div>
+      <div class="container">
+        <div class="left">
+          <img src="https://picsum.photos/seed/picsum/400/300" alt="" />
+        </div>
+        <div class="right">
+          <h1>啞鈴</h1>
+          <p>
+            啞鈴是一種多功能的力量訓練器材，適用於增強肌肉和雕塑身體。它們可以針對多個部位進行訓練，包括手臂、肩膀、胸部、背部、核心和腿部。透過各種啞鈴動作，如臥推、二頭肌彎舉、側平舉和深蹲，能有效提升肌肉力量、耐力和協調性。無論是初學者還是經驗豐富的健身者，啞鈴都是理想的選擇。
+          </p>
+          <p>NTD &nbsp;100元/天</p>
+          <div class="controll">
+            <p>數量</p>
+            <div class="counter">
+              <button class="btn decrease">-</button><span class="count">1</span
+              ><button class="btn increase">+</button>
+            </div>
+          </div>
+          <div class="controll">
+            <p>天數</p>
+            <div class="counter">
+              <button class="btn decrease">-</button><span class="count">1</span
+              ><button class="btn increase" type="button">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // 為所有麵包屑項目添加點擊效果
+        const breadcrumbItems = document.querySelectorAll(".breadcrumb-item");
+
+        breadcrumbItems.forEach((item) => {
+          item.addEventListener("click", function (e) {
+            // 移除所有項目的活動狀態
+            breadcrumbItems.forEach((i) => i.classList.remove("active"));
+
+            // 為當前點擊的項目添加活動狀態
+            this.classList.add("active");
+
+            // 添加點擊動畫效果
+            const link = this.querySelector("a");
+            link.style.transform = "translateY(0)";
+            setTimeout(() => {
+              link.style.transform = "translateY(-2px)";
+            }, 150);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
