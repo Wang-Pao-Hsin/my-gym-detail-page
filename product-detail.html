@@ -3,7 +3,194 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
+   <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Serif TC", serif;
+  color: #484848;
+}
+
+
+.breadcrumb-container {
+  max-width: 1200px;
+  margin: 25px auto;
+  position: relative;
+}
+
+.breadcrumb {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  background-color: transparent;
+}
+
+.breadcrumb-item {
+  position: relative;
+  padding: 0 20px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: "›";
+  position: absolute;
+  top: 13px;
+  right: -5px;
+  color: #666;
+  font-size: 20px;
+  z-index: 2;
+}
+
+.breadcrumb-item a {
+  text-decoration: none;
+  color: #666;
+  font-size: 18px;
+  font-family: "Noto Serif TC", serif;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease, color 0.3s ease;
+  height: 60px;
+  line-height: 60px;
+  display: block;
+}
+
+/* 懸停效果 - 上浮動畫和底部線條 */
+.breadcrumb-item:hover a {
+  transform: translateY(-2px);
+  color: #666;
+}
+
+/* 底部線條動畫 */
+.breadcrumb-item:not(.active) a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background: #000;
+  transition: all 0.5s ease;
+}
+
+.breadcrumb-item:hover a::after,
+.breadcrumb-item.active a::after {
+  width: 100%;
+}
+
+/* 點擊/活動狀態 */
+.breadcrumb-item.active a {
+  color: #f87808;
+  font-weight: 600;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  margin: 10px auto;
+  padding: 5px;
+}
+.left {
+  display: flex;
+  justify-content: center;
+  width: 55%;
+}
+
+.left img {
+  width: 100%;
+  box-shadow: 4px 4px 10px rgb(14, 14, 80);
+  border-radius: 0.2rem;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 5px 30px;
+  width: 45%;
+}
+
+.right h1 {
+  font-size: 35px;
+}
+
+.controll {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  margin: 10px 0;
+}
+.counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  border-radius: 0.2rem;
+  background: rgb(11, 55, 96);
+  background: linear-gradient(
+    90deg,
+    rgba(11, 55, 96, 1) 7%,
+    rgba(255, 89, 56, 1) 100%
+  );
+}
+.right .btn {
+  padding: 10px 20px;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+}
+
+.right .count {
+  color: #fff;
+}
+
+.float-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+  margin: auto;
+  background: #0b3760b8;
+  padding: 10px 20px;
+  border-radius: 0.2rem;
+  position: fixed;
+  bottom: 36px;
+  left: calc((100% - 40%)/2);
+}
+.add-cart {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+.float-bar p {
+  color: #fff;
+  font-size: 16px;
+  span {
+    color: #fff;
+  }
+}
+.float-bar .btn {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  border-radius: 0.2rem;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.float-bar .add {
+  background-color: #f87808;
+}
+.float-bar .cart {
+  background-color: #0b3760;
+}
+.float-bar .rent-note{
+  background-color: #0b3760;
+}
+   </style>
     <title>啞鈴-健身器材</title>
   </head>
   <body>
