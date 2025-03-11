@@ -16,9 +16,14 @@
       }
 
       * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
         /* font-family: "Iansui", cursive; */
         font-family: "Chiron Hei HK";
+        color: #0b3760;
       }
+      /* 進度條樣式 */
       .stepper {
         width: 50%;
         display: flex;
@@ -29,6 +34,8 @@
       .step {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
+        height: 60px;
         align-items: center;
         color: #0b3760;
       }
@@ -63,6 +70,77 @@
       .active .circle::before {
         background: #db6318;
       }
+
+      /* 表單樣式 */
+      .form {
+        display: flex;
+        justify-content: center;
+        margin: 40px 0px;
+        /* background-color: pink; */
+      }
+      .form form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+        /* height: 70vh; */
+        padding:50px 20px;
+        border: 1px solid;
+        border-radius: 3px;
+      }
+
+      .formGroup {
+        display: flex;
+        align-items: center;
+        width: 70%;
+        margin: 10px 0px;
+      }
+      .formGroup label {
+        width: 10%;
+      }
+      .formGroup input {
+        width: 80%;
+        padding: 10px;
+        border: none;
+        background: transparent;
+        border-bottom: 1px solid #0b3760;
+      }
+
+      .formGroup input:focus {
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #db6318;
+      }
+      .radioItem {
+        display: flex;
+        align-items: center;
+        width: 20%;
+      }
+      .radioItem input {
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        margin-right: 20px;
+        border: 1px solid #0b3760;
+        border-radius: 30%;
+        display: inline-block;
+        position: relative;
+      }
+      .radioItem input:checked {
+        border-color: #db6318;
+      }
+      .radioItem input:checked::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        background-color: #db6318; /* 內圈變橘色 */
+        border-radius: 30%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      
     </style>
     <title>填寫基本資料</title>
   </head>
@@ -80,6 +158,37 @@
         <div class="circle">3</div>
         <p>興趣類型</p>
       </div>
+    </div>
+    <div class="form">
+      <form action="">
+        <h2>基本資料</h2>
+        <div class="formGroup">
+          <label for="name">姓名</label>
+          <input type="text" name="name" id="name" />
+        </div>
+        <div class="formGroup">
+          <label for="sex">性別</label>
+          <div class="radioItem">
+            <input type="radio" name="sex" id="sex" value="male" />男性
+          </div>
+          <div class="radioItem">
+            <input type="radio" name="sex" id="sex" value="female" />女性
+          </div>
+        </div>
+        <div class="formGroup">
+          <label for="phone">手機</label>
+          <input type="tel" name="phone" id="phone" />
+          <!-- <button>簡訊驗證</button> -->
+        </div>
+        <div class="formGroup">
+          <label for="birthday">生日</label>
+          <input class="calender" type="date" name="birthday" id="name" />
+        </div>
+        <div>
+          <button type="button">下一步</button>
+          <button type="submit">測試</button>
+        </div>
+      </form>
     </div>
   </body>
 </html>
