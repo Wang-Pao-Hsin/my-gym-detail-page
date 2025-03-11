@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-hant-tw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Noto Serif TC", serif;
+        text-align: center;
+      }
+      .container {
+        /* display: flex; */
+      }
+      .step-bar {
+        width: 25%;
+        height: 100vh;
+        position: fixed;
+        background-color: #0b3760;
+        z-index: -1;
+      }
+      .stepper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        height: 80%;
+        margin: 100px 60px;
+      }
+      .step {
+        display: flex;
+        flex: 1;
+        text-align: center;
+        position: relative;
+      }
+      .circle::before {
+        content: "";
+        position: absolute;
+        width: 200px;
+        height: 2px;
+        background: #ffffff;
+        z-index: -1;
+        transform: rotate(90deg) translate(50%);
+      }
+      .step:last-child .circle::before {
+        display: none;
+      }
+      .circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: bold;
+        color: #090179;
+      }
+      .active .circle {
+        background: #e76317;
+        color: white;
+      }
+      .completed .circle {
+        background: #090179;
+        color: white;
+      }
+      .step p {
+        margin-top: 6px;
+        font-size: 18px;
+        color: #ffffff;
+        margin-left: 20px;
+      }
+      .active p {
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 30px;
+      }
+
+      .form1 {
+        width: 50%;
+        position: absolute;
+        right: 0;
+      }
+      .form1 .form-group{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 80%;
+        margin: auto;
+        margin-bottom: 10px;
+      }
+      .form1 .inputs {
+        width: 100%;
+        padding: 12px 24px;
+        border-radius: 8px;
+      }
+      
+      .dropdown button {
+        margin: auto;
+        font-family: "Noto Serif TC", serif;
+        background-color: #db6318;
+        color: white;
+        padding: 12px 24px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, transform 0.2s ease-in-out;
+      }
+
+      .dropdown button:hover {
+        background-color: #c35a14;
+        transform: translateY(-2px);
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        left:calc((100% - 140px)/2);
+        background-color: #142020;
+        min-width:140px;
+        border-radius: 8px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.3s, transform 0.3s ease-in-out;
+      }
+
+      .dropdown-content a {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #db6318;
+        border-radius: 8px;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+     
+      }
+    </style>
+    <title>表單</title>
+  </head>
+  <body>
+    <div class="container">
+    
+      <form action="" class="form1">
+        <h1>表單樣式</h1>
+        <div class="dropdown">
+          <button>台北市</button>
+          <div class="dropdown-content">
+            <a href="#">新北市</a>
+            <a href="#">台中市</a>
+            <a href="#">台南市</a>
+            <a href="#">高雄市</a>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="">姓名</label>
+          <input
+            class="inputs"
+            type="text"
+            name=""
+            id=""
+            placeholder="請輸入姓名"
+          />
+        </div>
+        <div class="form-group">
+          <label for="">密碼</label>
+          <input
+            class="inputs"
+            type="password"
+            name=""
+            id=""
+            placeholder="請輸入密碼"
+          />
+        </div>
+        <div class="form-group">
+          <label for="">電話</label>
+          <input
+            class="inputs"
+            type="tel"
+            name=""
+            id=""
+            placeholder="請輸入電話"
+          />
+        </div>
+        <div class="form-group">
+          <label for="">標題</label>
+          <input
+            class="inputs"
+            type="number"
+            name=""
+            id=""
+            placeholder="請輸入身高"
+          />
+        </div>
+        <div class="form-group">
+          <label for="">標題</label>
+          <input class="inputs" type="date" />
+        </div>
+        <input type="radio" name="" id="" value="male" />男性
+        <br />
+        <br />
+        <input type="checkbox" name="" id="" />增肌
+        <br />
+        <br />
+      </form>
+    </div>
+  </body>
+</html>
